@@ -547,7 +547,7 @@ func (c *Consumer) MakeHttpClient(token *AccessToken) (*http.Client, error) {
 	}, nil
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call Get on the http client returned by MakeHttpClient instead!
 //
 // Executes an HTTP Get, authorized via the AccessToken.
@@ -578,52 +578,52 @@ func encodeUserParams(userParams map[string]string) string {
 	return data.Encode()
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Post" on the http client returned by MakeHttpClient instead
 func (c *Consumer) PostForm(url string, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.PostWithBody(url, "", userParams, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Post" on the http client returned by MakeHttpClient instead
 func (c *Consumer) Post(url string, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.PostWithBody(url, "", userParams, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Post" on the http client returned by MakeHttpClient instead
 func (c *Consumer) PostWithBody(url string, body string, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequest("POST", url, LOC_BODY, body, userParams, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Do" on the http client returned by MakeHttpClient instead
 // (and set the "Content-Type" header explicitly in the http.Request)
 func (c *Consumer) PostJson(url string, body string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequest("POST", url, LOC_JSON, body, nil, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Do" on the http client returned by MakeHttpClient instead
 // (and set the "Content-Type" header explicitly in the http.Request)
 func (c *Consumer) PostXML(url string, body string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequest("POST", url, LOC_XML, body, nil, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Do" on the http client returned by MakeHttpClient instead
 // (and setup the multipart data explicitly in the http.Request)
 func (c *Consumer) PostMultipart(url, multipartName string, multipartData io.ReadCloser, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequestReader("POST", url, LOC_MULTIPART, 0, multipartName, multipartData, userParams, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Delete" on the http client returned by MakeHttpClient instead
 func (c *Consumer) Delete(url string, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequest("DELETE", url, LOC_URL, "", userParams, token)
 }
 
-// ** DEPRECATED **
+// DEPRECATED **
 // Please call "Put" on the http client returned by MakeHttpClient instead
 func (c *Consumer) Put(url string, body string, userParams map[string]string, token *AccessToken) (resp *http.Response, err error) {
 	return c.makeAuthorizedRequest("PUT", url, LOC_URL, body, userParams, token)
